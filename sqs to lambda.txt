@@ -1,0 +1,21 @@
+#SQS to lambda#
+
+STEP1: Setup SQS
+Configure your sqs.
+
+STEP2: Setup Dead sqs
+Configure it in the same way as simple sqs
+
+STEP3: Go to first sqs -> configure -> Dead-letter queue (Enable) and choose your dead sqs
+
+STEP4: Go to lambda. Create a function and choose "Use blueprint" -> sqs-poller
+
+STEP5: In configuration -> SQS trigger choose your sqs and enable your trigger
+
+STEP6: Go to sqs in lambda triggers there should be one lambda and status should be enable
+
+STEP7: Try to send the message.
+
+STEP8: Go to cloudwatch -> logs and check the logs of your message
+
+Note: All messages which are not processed will go to dead queue sqs.
